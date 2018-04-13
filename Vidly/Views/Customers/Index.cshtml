@@ -1,0 +1,22 @@
+﻿@model Vidly.ViewModels.CustomersViewModel
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>@Model.Name</h2>
+@if (Model.Customers.Count > 3)
+{
+    <ul>
+        @foreach(var customer in Model.Customers)
+        {
+            <li> @Html.ActionLink(@customer.Name, "Details", "Customers", new { Id = @customer.Id }, new { @class = "nav-link" })</li>
+        }
+    </ul>
+}
+else
+{
+    <p>No customers available!</p>
+}
+
+
